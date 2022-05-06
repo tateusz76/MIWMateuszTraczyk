@@ -1,6 +1,5 @@
-import math
 import numpy as np
-
+import math
 
 def proj(u, v):
     return (np.dot(v, u) / np.dot(u, u)) * u
@@ -30,15 +29,39 @@ def getR(Q, A):
     return np.dot(Q, np.transpose(A))
 
 
-A = np.array([
-    [1, 1, 0],
-    [0, 1, 1],
-    [1, 1, 1],
+A = A = np.array([
+    [3, 2],
+    [4, 1],
 ])
-Q = getQ(A)
-R = getR(Q, A)
-print("Macierz Q: ")
-print(np.transpose(Q))
 
-print("Macierz R: ")
-print(R)
+
+def checkTriangle(A1):
+    detA1 = np.linalg.det(A1)
+    if(detA1 == np.prod(A1.diagonal())):
+        return 1
+    else:
+        return 0
+
+        
+def eigenval(A):
+    D1 = A
+    Q0 = np.eye(len(A))
+
+    Q1 = getQ(A)
+    R1 = getR(Q1, A)
+
+    A1 = R1 * Q1
+
+    #while(checkTriangle(A1) == 0):
+        
+    
+
+
+    
+
+    
+
+
+
+
+
