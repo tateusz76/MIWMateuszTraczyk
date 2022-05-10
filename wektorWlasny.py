@@ -26,13 +26,19 @@ def eigenval(A):
         Rn = np.dot(Qn, An)
         An = np.dot(Rn, Q)
         Q, R = np.linalg.qr(An)
-        print(An, '\n')
         
     for i in range(len(An)):
         for j in range(len(An)):
             if i == j:
                 eigenvalTab.append(An[i][j])
     return eigenvalTab
+
+def matrixLambda(A, lambd):
+    for i in range(0, len(A)):
+        for j in range(0, len(A)):
+            A[i][j] -= lambd
+
+    return A
 
 
 A = np.array([
@@ -41,7 +47,16 @@ A = np.array([
     [8, 6, 7]
 ])
 
-print(eigenval(A))
+tabLambda = eigenval(A)
+print(tabLambda)
+
+matrixLambda1 = matrixLambda(A, tabLambda[0])
+
+print(matrixLambda1)
+
+
+
+
     
 
 
