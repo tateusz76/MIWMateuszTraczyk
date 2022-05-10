@@ -1,59 +1,47 @@
 import numpy as np
 import math
 
-def proj(u, v):
-    return (np.dot(v, u) / np.dot(u, u)) * u
 
+def get_An(Q, A):
+    Qn = np.transpose(Q)
+    Rn = np.dot(Qn, A)
+    
+    return np.dot(Rn, Q)
 
-def norm(v):
-    return math.sqrt(np.dot(np.transpose(v), v))
-
-
-def getE(u):
-    return u / norm(u)
-
-
-def getQ(A):
-    U = [A[0]]
+def checkTriangle(A):
     for i in range(1, len(A)):
-        v_i = A[i]
-        u_i = v_i - proj(A[i - 1], v_i)
-        U.append(u_i)
-    Q = []
-    for i in U:
-        Q.append(getE(i))
-    return np.array(Q)
+        for j in range(0, i):
+            if abs(A[i][j]) > 0.001:
+                return False
+    return True
 
 
-def getR(Q, A):
-    return np.dot(Q, np.transpose(A))
+def eigenval(A):
+    Q, R = np.linalg.qr(A)
+    An = np.round(np.dot(Q, R))
+    eigenvalTab = []
+    
+    while not checkTriangle(An):
+        Qn = np.transpose(Q)
+        Rn = np.dot(Qn, An)
+        An = np.dot(Rn, Q)
+        Q, R = np.linalg.qr(An)
+        print(An, '\n')
+        
+    for i in range(len(An)):
+        for j in range(len(An)):
+            if i == j:
+                eigenvalTab.append(An[i][j])
+    return eigenvalTab
 
 
-A = A = np.array([
-    [3, 2],
-    [4, 1],
+A = np.array([
+    [1, 2, 5],
+    [5, 8, 6],
+    [8, 6, 7]
 ])
 
-
-def checkTriangle(A1):
-    detA1 = np.linalg.det(A1)
-    if(detA1 == np.prod(A1.diagonal())):
-        return 1
-    else:
-        return 0
-
-        
-def eigenval(A):
-    D1 = A
-    Q0 = np.eye(len(A))
-
-    Q1 = getQ(A)
-    R1 = getR(Q1, A)
-
-    A1 = R1 * Q1
-
-    #while(checkTriangle(A1) == 0):
-        
+print(eigenval(A))
     
 
 
