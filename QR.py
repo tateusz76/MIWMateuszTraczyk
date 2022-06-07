@@ -25,12 +25,13 @@ def getQ(A):
 
 def getR(Q, A):
     return(np.dot(Q, np.transpose(A))) #dziwna rzecz z kalkulatorami online
-
+np.set_printoptions(precision=0, suppress=True)
 
 A = np.array([
     [0, 1, 2],
     [1, 0, 2],
 ])
+
 
 Q = getQ(A)
 print("Q:\n")

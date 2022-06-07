@@ -50,10 +50,6 @@ A = np.array([
 tabLambda = eigenval(A)
 print(tabLambda)
 
-matrixLambda1 = matrixLambda(A, tabLambda[0])
-
-print(matrixLambda1)
-
 
 
 
