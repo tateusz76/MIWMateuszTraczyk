@@ -1,8 +1,8 @@
 import numpy as np
 import random
 
-#plik = open("australian.dat")
-plik = open("test.dat")
+plik = open("australian.dat")
+#plik = open("test.dat")
 lista = []
 for line in plik:
     lista.append(list(map(lambda e:float(e) , line.replace('\n','').split(' '))))
@@ -67,16 +67,7 @@ def sumujKlasy(bezKlasy, klasa):
             odl = odleglosc(jednaKlasa[i], jednaKlasa[j])
             odleglosci.append(odl)
 
-    return sum(odleglosci)
-
-
-#print("Środki punktów dla klas ")
-#print("\n")
-#print("0: " + str(sumujKlasy(bezKlasy,0)))
-#print("1: " + str(sumujKlasy(bezKlasy,1)))
-#print("\n")
-
-#print(bezKlasy[0]) 
+    return sum(odleglosci) 
 
 def zliczZmiany(lista):
     licznik = 0
@@ -90,17 +81,10 @@ def porownaj(lista):
     suma0 = sumujKlasy(lista,0)
     suma1 = sumujKlasy(lista,1)
     licznikZmian = zliczZmiany(lista)
-    
-    #while(licznikZmian > 0):
-    #    for i in range(len(lista)):
+
             
                     
     return lista
-
-#print(porownaj(bezKlasy))
-
-#---------------------------------------------------------------------------------------
-#inne zadanie
 
 tabTest = np.array([1,2,3,4])
 

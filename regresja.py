@@ -33,6 +33,7 @@ print("\n")
 B = np.dot(XTX, XT)
 B = np.dot(B, tabY)
 
+print("B:\n")
 print(B)
 
 

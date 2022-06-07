@@ -1,8 +1,8 @@
 import numpy as np
 import random
 
-#plik = open("australian.dat")
-plik = open("test.dat")
+plik = open("australian.dat")
+#plik = open("test.dat")
 lista = []
 for line in plik:
     lista.append(list(map(lambda e:float(e) , line.replace('\n','').split(' '))))

@@ -92,21 +92,8 @@ print(euk2(lista[0], lista[1]))
 
 print(euk(0,1))
 
-#pd całkowanie numeryczne
-#montecarlo
-#lub sumy górne lub dolne//prostokątów/trapezów metoda
-#i dokonczyc ze srodkiem ciezkosci
-#na wykladzie: 28.02 1:10:00
-
 nowa=lista
 
 for i in range(len(nowa)):
     nowa[i] = nowa[i][:-1]
 
-
-def kolorowanie(lista):
-
-    for i in range(len(lista)):
-        wyb=random.randint()
-        if wyb%2==0:
-            
